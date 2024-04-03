@@ -1,25 +1,48 @@
 import React from 'react'
-import { StatusBar, Text, Platform, View } from "react-native";
+import { StatusBar, Text, Platform, View, Image, StyleSheet, Button } from "react-native";
 
 const LoadingScreen = () => {
 
-    console.log(Platform);
   return (
     <>
       <StatusBar
-        backgroundColor="#61dafb" // Sets the background color to light blue
-        barStyle="dark-content" // Sets the status bar icons and text to dark
-        animated={true} // Enables animated transitions
-        hidden={false} // Shows the status bar
-        showHideTransition="fade" // Sets the transition effect to fade
+        backgroundColor="white"
+        barStyle="dark-content"
+        animated={true}
+        hidden={false}
+        showHideTransition="fade"
       />
-
-      <View style={{ alignItems: "center" }}>
-        <Text>OS: {Platform.OS}</Text>
-        <Text>Version: {Platform.Version}</Text>
+      <View>
+        <Image
+          source={require("../../assets/images/dices 1.png")}
+          style={styles.image}
+        />
+        <Text style={styles.title}>DICE GAME</Text>
+        <Button style={styles.btn} title='play Now'></Button>
       </View>
     </>
   );
-}
+} 
+
+const styles = StyleSheet.create({
+  image: {
+    width: "90%",
+    height: 300,
+    borderWidth: 1,
+    borderColor: "black",
+    borderRadius: 5,
+    alignSelf: "center",marginTop:90
+  },
+  title: {
+    fontSize: 44,
+    fontWeight: "bold",
+    alignSelf: "center",
+    marginVertical: 40,
+  },
+  btn: {
+    alignSelf: "center",
+    width: 100,
+  },
+});
 
 export default LoadingScreen;
